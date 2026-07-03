@@ -15,20 +15,17 @@ public class GamblerLuckyDice () : GamblerRelic()
 {
     public override RelicRarity Rarity => RelicRarity.Common;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars
+    protected IEnumerable<DynamicVar> DynamicVar=> [new DynamicVar("Power", 25M)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => new IHoverTip[1]
     {
-        get
-        {
-            IEnumerable<DynamicVar> canonicalVars = [(new DynamicVar("Luck", 25M))];
-            return canonicalVars;
-        }
-    }
+        HoverTipFactory.FromPower<GamblerLuckPower>()
+    };
 
     public override async Task AfterRoomEntered(AbstractRoom room)
     {
         GamblerLuckyDice dice = this;
         if (!(room is CombatRoom))
             return;
-        GamblerLuckPower luckyDice = await PowerCmd.Apply<GamblerLuckPower>((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), dice.Owner.Creature, 25, dice.Owner.Creature, (CardModel) null);
+        GamblerLuckPower luckyDice = await PowerCmd.Apply<GamblerLuckPower>((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), dice.Owner.Creature, dice.DynamicVars["Power"].BaseValue, dice.Owner.Creature, (CardModel) null);
     }
 }
