@@ -1,0 +1,16 @@
+{
+  "GAMBLER-GAMBLER.aromaPrinciple": "Lore",
+  "GAMBLER-GAMBLER.banter.alive.endTurnPing": "Co-op hurry up end turn ping message",
+  "GAMBLER-GAMBLER.banter.dead.endTurnPing": "...",
+  "GAMBLER-GAMBLER.cardsModifierDescription": "__ cards will now appear in rewards and shops.",
+  "GAMBLER-GAMBLER.cardsModifierTitle": "__ Cards",
+  "GAMBLER-GAMBLER.description": "Character Selection\nScreen Description",
+  "GAMBLER-GAMBLER.eventDeathPrevention": "Co-op survival line",
+  "GAMBLER-GAMBLER.goldMonologue": "So much money!",
+  "GAMBLER-GAMBLER.possessiveAdjective": "his",
+  "GAMBLER-GAMBLER.pronounObject": "him",
+  "GAMBLER-GAMBLER.pronounPossessive": "his",
+  "GAMBLER-GAMBLER.pronounSubject": "he",
+  "GAMBLER-GAMBLER.title": "The Gambler",
+  "GAMBLER-GAMBLER.titleObject": "The Gambler"
+}
