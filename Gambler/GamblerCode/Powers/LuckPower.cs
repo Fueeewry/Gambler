@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Gambler.GamblerCode.Powers;
 
-public class GamblerLuckPower () : GamblerPower
+public class LuckPower () : GamblerPower
 {
     public override PowerType Type => PowerType.None;
 

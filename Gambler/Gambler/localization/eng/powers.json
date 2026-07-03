@@ -1,5 +1,5 @@
 {
-  "GAMBLER-GAMBLER_LUCK_POWER.description": "Determines chance of card effects",
-  "GAMBLER-GAMBLER_LUCK_POWER.smartDescription": "Determines chance of card effects (smart?)",
-  "GAMBLER-GAMBLER_LUCK_POWER.title": "GamblerLuckPower"
+  "GAMBLER-LUCK_POWER.description": "",
+  "GAMBLER-LUCK_POWER.smartDescription": "",
+  "GAMBLER-LUCK_POWER.title": "LuckPower"
 }
