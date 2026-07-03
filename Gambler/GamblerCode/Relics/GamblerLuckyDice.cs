@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Rooms;
 
 namespace Gambler.GamblerCode.Relics;
 
-public class LuckyDice () : GamblerRelic()
+public class GamblerLuckyDice () : GamblerRelic()
 {
     public override RelicRarity Rarity => RelicRarity.Common;
 
@@ -26,9 +26,9 @@ public class LuckyDice () : GamblerRelic()
 
     public override async Task AfterRoomEntered(AbstractRoom room)
     {
-        LuckyDice dice = this;
+        GamblerLuckyDice dice = this;
         if (!(room is CombatRoom))
             return;
-        LuckPower luckyDice = await PowerCmd.Apply<LuckPower>((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), dice.Owner.Creature, 25, dice.Owner.Creature, (CardModel) null);
+        GamblerLuckPower luckyDice = await PowerCmd.Apply<GamblerLuckPower>((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), dice.Owner.Creature, 25, dice.Owner.Creature, (CardModel) null);
     }
 }

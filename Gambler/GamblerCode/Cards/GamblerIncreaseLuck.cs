@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Nodes.Vfx;
 
 namespace Gambler.GamblerCode.Cards;
 
-public class IncreaseLuck () : GamblerCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
+public class GamblerIncreaseLuck () : GamblerCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars
     {
@@ -23,8 +23,8 @@ public class IncreaseLuck () : GamblerCard(1, CardType.Skill, CardRarity.Basic, 
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        IncreaseLuck cardSource = this;
+        GamblerIncreaseLuck cardSource = this;
         NPowerUpVfx.CreateNormal(cardSource.Owner.Creature);
-        LuckPower strengthPower = await PowerCmd.Apply<LuckPower>(choiceContext, cardSource.Owner.Creature, cardSource.DynamicVars["StrengthPower"].BaseValue, cardSource.Owner.Creature, (CardModel) cardSource);
+        GamblerLuckPower strengthPower = await PowerCmd.Apply<GamblerLuckPower>(choiceContext, cardSource.Owner.Creature, cardSource.DynamicVars["StrengthPower"].BaseValue, cardSource.Owner.Creature, (CardModel) cardSource);
     }
 }

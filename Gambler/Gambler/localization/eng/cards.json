@@ -1,4 +1,8 @@
 {
-  "GAMBLER-INCREASE_LUCK.description": "",
-  "GAMBLER-INCREASE_LUCK.title": "IncreaseLuck"
+  "GAMBLER-GAMBLER_STRIKE.description": "Deal 6 damage",
+  "GAMBLER-GAMBLER_STRIKE.title": "GamblerStrike",
+  "GAMBLER-GAMBLER_INCREASE_LUCK.description": "Gain 10 Luck",
+  "GAMBLER-GAMBLER_INCREASE_LUCK.title": "Increase Luck",
+  "GAMBLER-GAMBLER_CALL.description": "Deal 6 damage 25% chance again",
+  "GAMBLER-GAMBLER_CALL.title": "Call!"
 }

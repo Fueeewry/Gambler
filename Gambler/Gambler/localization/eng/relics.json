@@ -1,5 +1,5 @@
 {
-  "GAMBLER-LUCKY_DICE.description": "",
-  "GAMBLER-LUCKY_DICE.flavor": "",
-  "GAMBLER-LUCKY_DICE.title": "LuckyDice"
+  "GAMBLER-GAMBLER_LUCKY_DICE.description": "At the start of combat, give 25 Luck",
+  "GAMBLER-GAMBLER_LUCKY_DICE.flavor": "At the start of combat, give 25 Luck",
+  "GAMBLER-GAMBLER_LUCKY_DICE.title": "Lucky Dice"
 }

@@ -23,20 +23,17 @@ public class Gambler : PlaceholderCharacterModel
 
     public override IEnumerable<CardModel> StartingDeck =>
     [
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
         ModelDb.Card<DefendIronclad>(),
         ModelDb.Card<DefendIronclad>(),
         ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<IncreaseLuck>(),
+        ModelDb.Card<GamblerIncreaseLuck>(),
+        ModelDb.Card<GamblerCall>(),
         ModelDb.Card<DefendIronclad>()
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>
     [
-        ModelDb.Relic<LuckyDice>()
+        ModelDb.Relic<GamblerLuckyDice>()
     ];
 
     public override CardPoolModel CardPool => ModelDb.CardPool<GamblerCardPool>();
