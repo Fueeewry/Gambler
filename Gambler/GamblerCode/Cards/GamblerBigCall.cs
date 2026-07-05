@@ -15,12 +15,12 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace Gambler.GamblerCode.Cards;
 
 [Pool(typeof(GamblerCardPool))]
-public class GamblerCall () : GamblerCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
+public class GamblerBigCall () : GamblerCard(2, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => new DynamicVar[5]
     {
-        new DamageVar(7M, ValueProp.Move),
-        new RepeatVar(2),
+        new DamageVar(6M, ValueProp.Move),
+        new RepeatVar(6),
         new CalculationBaseVar(0M),
         new CalculationExtraVar(1M),
         new CalculatedVar("Power").WithMultiplier((Func<CardModel, Creature, Decimal>) ((card, _) =>
@@ -32,15 +32,19 @@ public class GamblerCall () : GamblerCard(1, CardType.Attack, CardRarity.Basic, 
     
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        GamblerCall card = this;
+        GamblerBigCall card = this;
         
         var rng = new RandomNumberGenerator();
         var my_random_number = rng.RandfRange(0, 100);
             
         int value = 1;
         if(cardPlay.Card.Owner.Creature.GetPower<GamblerLuckPower>()!.Amount > my_random_number) value = 2;
-        
-        AttackCommand attackCommand = await DamageCmd.Attack(card.DynamicVars.Damage.BaseValue).WithHitCount(value).FromCard((CardModel) card).Targeting(card.CurrentTarget).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+
+        for (int i = 0; i < card.DynamicVars.Repeat.IntValue; ++i)
+        {
+            AttackCommand attackCommand = await DamageCmd.Attack(card.DynamicVars.Damage.BaseValue).FromCard((CardModel) card).Targeting(card.CurrentTarget).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+            if (cardPlay.Card.Owner.Creature.GetPower<GamblerLuckPower>()!.Amount < my_random_number) break;
+        }
     }
 
     protected override void OnUpgrade() => this.DynamicVars.Repeat.UpgradeValueBy(1M);

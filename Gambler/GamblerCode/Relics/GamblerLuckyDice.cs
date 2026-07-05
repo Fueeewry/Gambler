@@ -26,6 +26,6 @@ public class GamblerLuckyDice () : GamblerRelic()
         GamblerLuckyDice dice = this;
         if (!(room is CombatRoom))
             return;
-        GamblerLuckPower luckyDice = await PowerCmd.Apply<GamblerLuckPower>((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), dice.Owner.Creature, dice.DynamicVars["Power"].BaseValue, dice.Owner.Creature, (CardModel) null);
+        GamblerLuckPower luckyDice = await PowerCmd.Apply<GamblerLuckPower>((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), dice.Owner.Creature, 25, dice.Owner.Creature, (CardModel) null);
     }
 }

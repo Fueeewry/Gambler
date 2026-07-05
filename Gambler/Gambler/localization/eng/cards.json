@@ -1,8 +1,14 @@
 {
-  "GAMBLER-GAMBLER_STRIKE.description": "Deal 6 damage",
-  "GAMBLER-GAMBLER_STRIKE.title": "GamblerStrike",
-  "GAMBLER-GAMBLER_INCREASE_LUCK.description": "Gain 10 Luck",
+  "GAMBLER-GAMBLER_STRIKE.description": "Deal {Damage:diff()} damage",
+  "GAMBLER-GAMBLER_STRIKE.title": "Strike",
+  "GAMBLER-GAMBLER_INCREASE_LUCK.description": "Gain {Power:diff()} Luck",
   "GAMBLER-GAMBLER_INCREASE_LUCK.title": "Increase Luck",
-  "GAMBLER-GAMBLER_CALL.description": "Deal 6 damage 25% chance again",
-  "GAMBLER-GAMBLER_CALL.title": "Call!"
+  "GAMBLER-GAMBLER_CALL.description": "Deal {Damage:diff()} damage {Power:diff()}% chance again",
+  "GAMBLER-GAMBLER_CALL.title": "Call!",
+  "GAMBLER-GAMBLER_FAILING.description": "Reduce Luck by {Power:diff()}%, Gain {Energy:diff()}",
+  "GAMBLER-GAMBLER_FAILING.title": "GamblerFailing",
+  "GAMBLER-GAMBLER_BIG_CALL.description": "Deal {Damage:diff()} damage 6 times, {Power:diff()}% chance to fail",
+  "GAMBLER-GAMBLER_BIG_CALL.title": "GamblerBigCall",
+  "GAMBLER-GAMBLER_PLAYING_SAFE.description": "Gain {Block:diff()} block, gain {Power:diff()} Luck",
+  "GAMBLER-GAMBLER_PLAYING_SAFE.title": "GamblerPlayingSafe"
 }

@@ -1,7 +1,9 @@
 ﻿using BaseLib.Extensions;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -16,20 +18,11 @@ public class GamblerLuckPower () : GamblerPower
 
     public override bool AllowNegative => true;
 
-    public override Decimal ModifyBlockAdditive(
-        Creature target,
-        Decimal block,
-        ValueProp props,
-        CardModel? cardSource,
-        CardPlay? cardPlay)
+    public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
+        CardModel? cardSource)
     {
-        if (cardSource != null)
-        {
-            if (cardSource.Owner.Creature != this.Owner)
-                return 0M;
-        }
-        else if (this.Owner != target)
-            return 0M;
-        return !props.IsPoweredCardOrMonsterMoveBlock_() ? 0M : (Decimal) this.Amount;
+        if (power == this && amount > 100) power.SetAmount(100);
+        else if (power == this && amount < -100) power.SetAmount(-100);
+        return Task.CompletedTask;
     }
 }

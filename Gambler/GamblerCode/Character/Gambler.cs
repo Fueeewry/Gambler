@@ -23,6 +23,7 @@ public class Gambler : PlaceholderCharacterModel
 
     public override IEnumerable<CardModel> StartingDeck =>
     [
+        ModelDb.Card<GamblerStrike>(),
         ModelDb.Card<DefendIronclad>(),
         ModelDb.Card<DefendIronclad>(),
         ModelDb.Card<DefendIronclad>(),

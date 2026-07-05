@@ -8,18 +8,15 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Gambler.GamblerCode.Cards;
 
-public abstract class GamblerStrike () : GamblerCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
+public class GamblerStrike () : GamblerCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => new DynamicVar[1]
-    {
-        new DamageVar(3, ValueProp.Move)
-    };
-
+    protected override IEnumerable<DamageVar> CanonicalVars => [new DamageVar(6M, ValueProp.Move)];
+    
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         GamblerStrike card = this;
-        AttackCommand attackCommand = await DamageCmd.Attack(card.DynamicVars.Damage.BaseValue).FromCard((CardModel) card).Targeting(card.CurrentTarget).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        AttackCommand attackCommand = await DamageCmd.Attack(card.DynamicVars.Damage.BaseValue).FromCard((CardModel) card).Targeting(card.CurrentTarget!).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
 
-    protected override void OnUpgrade() => this.DynamicVars.Repeat.UpgradeValueBy(1M);
+    protected override void OnUpgrade() => this.DynamicVars.Damage.UpgradeValueBy(1M);
 }
